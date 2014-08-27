@@ -153,7 +153,7 @@ server.server();
 ###1.创建Transport
 
 ```java
-String host = 'localhost';
+String host = "localhost";
 int port = 8090;
 TTransport transport = new TSocket(host, port);
 ```
