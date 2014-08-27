@@ -124,9 +124,8 @@ TServer.Args args = new TServer.Args(port);
 > * 半同步半异步：TNonblockinfServerSocket 对应 THsHaServer.Args
 
 > 注意：使用非阻塞和半异步方式都需要使用 `args.transportFactory(new TFramedTransport.Factory())`
-###5.创建tprotocol
+###5.创建Tprotocol
 ```java
-
 args.protocolFactory(new TBinaryProtocol.Factory());
 ```
 > * 二进制传输 `TBinaryProtocol`
@@ -146,7 +145,7 @@ TServer server = new TSimpleServer(args);
 ###6.启动server
 
 ```java
-	server.server();
+server.server();
 ```	
 
 ##六、编写 thrift client
