@@ -9,7 +9,7 @@ thrift java端service和client的简单封装
 ##二、编写thrift脚本
 
 create file `User.thrift`
-```java
+```thrift
 namespace java ThriftService.User
 status User {
 	1:i32 id;
@@ -37,8 +37,9 @@ service UserService {
 
 ##三、生成java脚本
 
-	thrift -r -gen java User.thrift
-	
+```shell
+thrift -r -gen java User.thrift
+```
 ##四、创建Maven项目并配置
 
 ####1.安装maven
@@ -63,6 +64,7 @@ service UserService {
 	<artifactId>slf4j-log4j12</artifactId>
 	<version>1.5.8</version>
 </dependency>
+```
 
 > 在`dependencies`中添加，引用thrift与slf4j包
 
@@ -107,14 +109,12 @@ public class UserLmpl implements UserService.Iface{
 ###3.创建TProcessor
 
 ```java
-
 UserService.processor processor = new UserService.Processor<UserService.Iface>(
 						new UserLmpl();
 ```
 ###4.创建TServerTransport
 
 ```java
-	
 int port = 8090;
 TServerTransport transport = new TServerSocket(port);
 TServer.Args args = new TServer.Args(port);
@@ -136,7 +136,6 @@ args.protocolFactory(new TBinaryProtocol.Factory());
 ###5.创建TServer
 
 ```java
-
 TServer server = new TSimpleServer(args);
 ```	
 > * 最简单方式，一般用于测试 `TSimpleServer`
@@ -147,8 +146,7 @@ TServer server = new TSimpleServer(args);
 ###6.启动server
 
 ```java
-	
-server.server();
+	server.server();
 ```	
 
 ##六、编写 thrift client
@@ -156,7 +154,6 @@ server.server();
 ###1.创建Transport
 
 ```java
-
 String host = 'localhost';
 int port = 8090;
 TTransport transport = new TSocket(host, port);
@@ -166,7 +163,6 @@ TTransport transport = new TSocket(host, port);
 ###2.创建Protocol
 
 ```java
-	
 Protocol protocol = new TBinaryProtocol(transport);
 ```
 > 需要与服务端保持一致
@@ -174,13 +170,11 @@ Protocol protocol = new TBinaryProtocol(transport);
 ###3.创建client
 
 ```java
-
 UserService.Client client = new UserService.Client(protocol);
 ```
 ###4.调用方法
 
 ```java
-
 client.getUserCount();
 client.getUser(userid);
 client.addUser(user);
@@ -189,11 +183,9 @@ client.getUsers();
 ##七、使用ThriftForJava 创建 server
 
 ```java
-
 UserServ server = new UserServ();
 ThriftService thriftService = ThriftService.newInstance();
 thriftService.setProcessor(new UserService.Processor<UserService.Iface>(new UserLmpl()));
-		
 hriftService.setTransport();
 thriftService.setBinaryProtocol();
 thriftService.start();
@@ -202,7 +194,6 @@ thriftService.start();
 ##八、使用ThriftForJava 创建client
 
 ```java
-
 ThriftClient thriftClient = ThriftClient.newInstance();
 thriftClient.setBlockingTransport();
 thriftClient.setBinaryProtocol();
