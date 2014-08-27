@@ -1,12 +1,13 @@
 package example.asyn;
 
 
+import lib.ThriftForJava.ThriftClient;
+
 import org.apache.thrift.async.AsyncMethodCallback;
 import org.apache.thrift.async.TAsyncClientManager;
 import org.apache.thrift.transport.TNonblockingTransport;
 import org.apache.thrift.transport.TTransportException;
 
-import ThriftServer.Base.ThriftClient;
 import ThriftService.User.*;
 import ThriftService.User.UserService.AsyncClient.addUser_call;
 

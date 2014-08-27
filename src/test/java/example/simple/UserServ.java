@@ -1,10 +1,10 @@
 package example.simple;
 
+import lib.ThriftForJava.ThriftService;
 import lmpl.UserLmpl;
 
 import org.apache.thrift.transport.TTransportException;
 
-import ThriftServer.Base.ThriftService;
 import ThriftService.User.UserService;
 
 public class UserServ {

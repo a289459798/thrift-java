@@ -1,9 +1,10 @@
 package example.simple;
 
+import lib.ThriftForJava.ThriftClient;
+
 import org.apache.thrift.TException;
 import org.apache.thrift.transport.TTransportException;
 
-import ThriftServer.Base.ThriftClient;
 import ThriftService.User.UserService;
 
 public class UserClient {

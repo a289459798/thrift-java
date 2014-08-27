@@ -1,5 +1,6 @@
 package example.asyn;
 
+import lib.ThriftForJava.ThriftService;
 import lmpl.UserLmpl;
 
 import org.apache.thrift.protocol.TProtocol;
@@ -8,7 +9,6 @@ import org.apache.thrift.server.TServerEventHandler;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
 
-import ThriftServer.Base.ThriftService;
 import ThriftService.User.*;
 
 public class UserServ implements TServerEventHandler {
