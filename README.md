@@ -1,6 +1,8 @@
 thrift-java
 ===========
 
+#QQ群：62893237
+
 thrift java端service和client的简单封装
 
 ##一、安装thrift
