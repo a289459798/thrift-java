@@ -174,3 +174,22 @@ create file `User.thrift`
 	client.getUser(userid);
 	client.addUser(user);
 	client.getUsers();
+	
+##七、使用ThriftForJava 创建 server
+
+	UserServ server = new UserServ();
+	ThriftService thriftService = ThriftService.newInstance();
+	thriftService.setProcessor(new UserService.Processor<UserService.Iface>(new UserLmpl()));
+		
+	hriftService.setTransport();
+	thriftService.setBinaryProtocol();
+	thriftService.start();
+	
+##八、使用ThriftForJava 创建client
+
+	ThriftClient thriftClient = ThriftClient.newInstance();
+	thriftClient.setBlockingTransport();
+	thriftClient.setBinaryProtocol();
+	thriftClient.createClient();
+	UserService.Client client = new UserService.Client(thriftClient.getProtocol());
+	System.out.println(client.getUserCount());
