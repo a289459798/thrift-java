@@ -22,7 +22,7 @@ struct User {
 	
 service UserService {
 	User getUser(1:i32 UserId),
-	bool addUser(User user),
+	bool addUser(1:User user),
 	i32 getUserCount(),
 	list<User> getUsers()
 }
