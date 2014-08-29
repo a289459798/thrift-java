@@ -13,7 +13,7 @@ thrift java端service和client的简单封装
 create file `User.thrift`
 ```thrift
 namespace java ThriftService.User
-status User {
+struct User {
 	1:i32 id;
 	2:string name;
 	3:string sex;
